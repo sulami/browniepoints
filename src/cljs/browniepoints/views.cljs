@@ -45,14 +45,15 @@
              :on-click #(re-frame/dispatch [:del-person k])}]]])
 
 (defn add-person-form []
-  [:div {:style {:display "flex"
+  [:form {:action "#"
+          :style {:display "flex"
                  :justify-content "center"
                  :align-items "stretch"
                  :padding "20px"}}
    [:input {:type "text"
             :placeholder "Name"
             :id "new-name"}]
-   [:input {:type "button"
+   [:input {:type "submit"
             :value "Add"
             :on-click #(let [elm (.getElementById js/document "new-name")]
                          (re-frame/dispatch [:add-person (.-value elm)])
