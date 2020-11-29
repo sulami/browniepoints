@@ -33,7 +33,16 @@
              :on-click #(re-frame/dispatch [:inc k])
              :style {:color "green"
                      :font-size "110%"
-                     :flex-grow "1"}}]]])
+                     :flex-grow "1"}}]]
+   [:div {:style {:display "flex"
+                  :justify-content "center"
+                  :align-items "stretch"
+                  :margin-top "10px"}}
+    [:input {:type "button"
+             :value "Delete"
+             :style {:width "50%"
+                     :font-size "100%"}
+             :on-click #(re-frame/dispatch [:del-person k])}]]])
 
 (defn add-person-form []
   [:div {:style {:display "flex"

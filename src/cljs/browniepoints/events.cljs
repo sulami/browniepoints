@@ -42,3 +42,10 @@
                                                   :points 0})]
      (db->local-store new-db)
      new-db)))
+
+(re-frame/reg-event-db
+ :del-person
+ (fn [db [_ k]]
+   (let [new-db (update-in db [:people] dissoc k)]
+     (db->local-store new-db)
+     new-db)))
