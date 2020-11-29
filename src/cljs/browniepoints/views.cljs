@@ -35,9 +35,24 @@
                      :font-size "110%"
                      :flex-grow "1"}}]]])
 
+(defn add-person-form []
+  [:div {:style {:display "flex"
+                 :justify-content "center"
+                 :align-items "stretch"
+                 :padding "20px"}}
+   [:input {:type "text"
+            :placeholder "Name"
+            :id "new-name"}]
+   [:input {:type "button"
+            :value "Add"
+            :on-click #(let [elm (.getElementById js/document "new-name")]
+                         (re-frame/dispatch [:add-person (.-value elm)])
+                         (set! (.-value elm) ""))}]])
+
 (defn main-panel []
   (let [people (re-frame/subscribe [::subs/people])]
     [:div {:align "center"}
      [header]
      (for [[k p] @people]
-       [person k p])]))
+       [person k p])
+     [add-person-form]]))
