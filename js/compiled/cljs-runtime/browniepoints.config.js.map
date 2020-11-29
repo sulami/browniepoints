@@ -1,0 +1,1 @@
+{"version":3,"sources":["browniepoints/config.cljs"],"mappings":";AAEA,AAAKA,AACMC","names":["browniepoints.config/debug?","js/goog.DEBUG"],"sourcesContent":["(ns browniepoints.config)\n\n(def debug?\n  ^boolean goog.DEBUG)\n"]}
